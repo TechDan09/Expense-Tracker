@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpenseFilter';
 import Expenseslist from './ExpensesList';
+import ExpensesChart from './ExpensesChart';
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState('2021');
@@ -23,6 +24,8 @@ const Expenses = (props) => {
           selectedYear={filteredYear}
           onYearChangeData={saveYearChangeData}
         />
+        <ExpensesChart expenses={filteredExpenses} />
+
         <Expenseslist items={filteredExpenses} />
         {/* AN alternative to the ternary operator inside the return statement as such:
         {filteredExpenses.length === 0 ? (
